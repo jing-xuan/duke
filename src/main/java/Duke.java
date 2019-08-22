@@ -14,6 +14,7 @@ public class Duke {
         do {
             userInput = input.next();
             System.out.println(userInput + "\n");
-        } while(!userInput.equals("Bye. Hope to see you again!"));
+        } while(!userInput.equals("bye"));
+        System.out.println("Bye, hope to see you again!");
     }
 }
