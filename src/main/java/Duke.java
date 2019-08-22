@@ -11,9 +11,19 @@ public class Duke {
         System.out.println("Hello from\n" + logo);
         System.out.println("What can I do for you?\n");
         String userInput;
+        String[] userTasks = new String[100];
+        int numTasks = 0;
         do {
-            userInput = input.next();
-            System.out.println(userInput + "\n");
+            userInput = input.nextLine();
+            if (!userInput.equals("list") && !userInput.equals("bye")){
+                userTasks[numTasks] = userInput;
+                System.out.println("added: " + userInput);
+                numTasks++;
+            } else {
+                for (int i = 0; i < numTasks; i++){
+                    System.out.println((i + 1) + ". " + userTasks[i]);
+                }
+            }
         } while(!userInput.equals("bye"));
         System.out.println("Bye, hope to see you again!");
     }
