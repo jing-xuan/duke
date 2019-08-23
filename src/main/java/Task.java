@@ -1,9 +1,11 @@
 public class Task {
+    protected static int numTasks = 0;
     protected String description;
     protected Boolean isDone;
     public Task(String description){
         this.description = description;
         this.isDone = false;
+        numTasks++;
     }
 
     public String getStatusIcon(){
@@ -15,6 +17,14 @@ public class Task {
     }
     
     public String toString() {
-        return "[" + this.getStatusIcon() + "] " + this.description;
+        return "[" + this.getStatusIcon() + "]" + this.description;
+    }
+
+    public static int getNumTasks() {
+        return numTasks;
+    }
+
+    public static void incrementTasks() {
+        numTasks++;
     }
 }

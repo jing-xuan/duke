@@ -3,6 +3,7 @@ public class Event extends Task {
     public Event(String description, String at){
         super(description);
         this.at = at;
+        System.out.println("Added new task: " + "[E]" + super.toString() + " (at: " + at + ")");
     }
 
     public String toString() {
