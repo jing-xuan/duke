@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileWriter;
@@ -49,6 +50,8 @@ public class Duke {
                     }
                 } else if (userInput.startsWith("save")) {
                     FileWriter writer = new FileWriter("output.txt");
+                    Date date = new Date();
+                    writer.write("List as of " + date.toString() + "\n");
                     for (int i = 0; i < arrTask.size(); i++){
                         writer.write((i + 1) + ". "+ arrTask.get(i).toString() + "\n");
                     }
