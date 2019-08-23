@@ -1,10 +1,12 @@
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Duke {
     protected static ArrayList<Task> arrTask = new ArrayList<Task>();
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -45,7 +47,15 @@ public class Duke {
                     } else {
                         System.out.println("No such task");
                     }
-                } else if (userInput.startsWith("deadline") || userInput.startsWith("todo") || userInput.startsWith("event")){
+                } else if (userInput.startsWith("save")) {
+                    FileWriter writer = new FileWriter("output.txt");
+                    for (int i = 0; i < arrTask.size(); i++){
+                        writer.write((i + 1) + ". "+ arrTask.get(i).toString() + "\n");
+                    }
+                    writer.close();
+                    System.out.println("Saved list to output.txt!");
+                }
+                else if (userInput.startsWith("deadline") || userInput.startsWith("todo") || userInput.startsWith("event")){
                     if (userInput.startsWith("deadline")) {
                         userInput = userInput.replaceAll("deadline", "");
                         String[] split = userInput.split("/by ");
