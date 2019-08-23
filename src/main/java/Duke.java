@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Duke {
+    private static int numTasks = 0;
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String logo = " ____        _        \n"
@@ -11,7 +12,6 @@ public class Duke {
                 + "|____/ \\__,_|_|\\_\\___|\n";
         System.out.println("Hello from\n" + logo);
         System.out.println("What can I do for you?\n");
-        int numTasks = 0;
         Task[] arrTask = new Task[100];
         while (true){
             String userInput;
@@ -30,12 +30,24 @@ public class Duke {
                     }
                 } else if (userInput.startsWith("list")){
                     for (int i = 0; i < numTasks; i++){
-                        System.out.println((i + 1) + ". [" + arrTask[i].getStatusIcon() + "] " + arrTask[i].description);
+                        System.out.println((i + 1) + ". " + arrTask[i].toString());
                     }
                 } else {
-                    arrTask[numTasks] = new Task(userInput);
+                    if (userInput.startsWith("deadline")){
+                        userInput = userInput.replaceAll("deadline ", "");
+                        String[] split = userInput.split("/by ");
+                        arrTask[numTasks] = new Deadline(split[0], split[1]);
+                    } else if (userInput.startsWith("todo ")){
+                        userInput = userInput.replaceAll("todo ", "");
+                        arrTask[numTasks] = new Todo(userInput);
+                    } else if (userInput.startsWith("event")){
+                        userInput.replaceAll("event ", "");
+                        String[] split = userInput.split("/at ");
+                        arrTask[numTasks] = new Event(split[0], split[1]);
+                    }
+                    System.out.println("Added new task: " + arrTask[numTasks].toString());
                     numTasks++;
-                    System.out.println("Added new task: " + userInput);
+                    System.out.println("You now have " + numTasks + " tasks");
                 }
             }
         }
