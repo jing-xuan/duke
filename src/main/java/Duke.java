@@ -1,9 +1,15 @@
+import java.text.FieldPosition;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Calendar;
 
 public class Duke {
     protected static ArrayList<Task> arrTask = new ArrayList<Task>();
@@ -65,8 +71,19 @@ public class Duke {
                         if (split.length == 1) {
                             System.out.println("Incomplete Task Entry!");
                         } else {
-                            Task newTask = new Deadline(split[0], split[1]);
-                            arrTask.add(newTask);
+                            boolean format = true;
+                            Date javaDate = new Date();
+                            try{
+                                SimpleDateFormat sdfrmt = new SimpleDateFormat("dd/MM/yyyy kkss");
+                                javaDate = sdfrmt.parse(split[1]);
+                            } catch (ParseException e){
+                                format = false;
+                                System.out.println("Invalid date format!");
+                            }
+                            if (format){
+                                Task newTask = new Deadline(split[0], javaDate);
+                                arrTask.add(newTask);
+                            }
                         }
                     } else if (userInput.startsWith("todo")){
                         userInput = userInput.replaceAll("todo", "");
@@ -82,8 +99,19 @@ public class Duke {
                         if (split.length == 1) {
                             System.out.println("Incomplete Task Entry!");
                         } else {
-                            Task newTask = new Event(split[0], split[1]);
-                            arrTask.add(newTask);
+                            boolean format = true;
+                            Date javaDate = new Date();
+                            try{
+                                SimpleDateFormat sdfrmt = new SimpleDateFormat("dd/MM/yyyy kkss");
+                                javaDate = sdfrmt.parse(split[1]);
+                            } catch (ParseException e){
+                                format = false;
+                                System.out.println("Invalid date format!");
+                            }
+                            if (format){
+                                Task newTask = new Event(split[0], javaDate);
+                                arrTask.add(newTask);
+                            }
                         }
                     }
                 } else {
