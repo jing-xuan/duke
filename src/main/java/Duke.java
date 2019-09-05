@@ -1,17 +1,6 @@
-import javafx.concurrent.Task;
 
-import java.text.FieldPosition;
-import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Calendar;
 
 public class Duke {
     public TaskList tasks;

@@ -1,0 +1,8 @@
+deadline d1 /by: 11/12/2019
+list
+event e1 /at: 11/10/2019
+list
+save
+find d
+save
+bye

@@ -1,9 +1,13 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
+enum taskType {
+    deadline,
+    event,
+    todo
+}
 public class Task {
     protected static int numTasks = 0;
     protected String description;

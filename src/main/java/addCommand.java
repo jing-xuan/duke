@@ -1,15 +1,7 @@
-enum taskType {
-    deadline,
-    event,
-    todo
-}
-
 public class addCommand extends Command {
-    protected taskType type;
     protected Task t;
 
-    public addCommand(taskType type, Task t){
-        this.type = type;
+    public addCommand(Task t){
         this.t = t;
     }
 
