@@ -14,6 +14,10 @@ public class CommandParser {
         if (s.startsWith("save")){
             return new saveCommand();
         }
+        if (s.startsWith("find")){
+            String desc = s.substring(5);
+            return new findCommand(desc);
+        }
         if (s.startsWith("deadline")) {
             try {
                 if (!s.contains(" /by: ")) {
