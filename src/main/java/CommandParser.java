@@ -14,6 +14,24 @@ public class CommandParser {
         if (s.startsWith("save")){
             return new saveCommand();
         }
+        if (s.startsWith("delete")) {
+            int index;
+            s = s.substring(7);
+            if (s.equals("")){
+                throw new DukeException("Specify the index of task to be deleted");
+            }
+            index = Integer.parseInt(s) - 1;
+            return new deleteCommand(index);
+        }
+        if (s.startsWith("done")){
+            int index;
+            s = s.substring(5);
+            if (s.equals("")){
+                throw new DukeException("Specify the index of task to be marked as done");
+            }
+            index = Integer.parseInt(s) - 1;
+            return new doneCommand(index);
+        }
         if (s.startsWith("deadline")) {
             try {
                 if (!s.contains(" /by: ")) {

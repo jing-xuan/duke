@@ -8,11 +8,18 @@ public class TaskList {
     };
     public void addTask(Task t){
         tasks.add(t);
-    };
+    }
+
+    public void deleteTask(int i){
+        tasks.remove(i);
+    }
 
     public void listTasks() {
         for (int i = 0; i < tasks.size(); i++){
             System.out.println((i + 1) + ". " + tasks.get(i).toString());
+        }
+        if (tasks.size() == 0){
+            System.out.println("You have no tasks!");
         }
     }
 
