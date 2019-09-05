@@ -31,6 +31,9 @@ public class CommandParser {
             }
             index = Integer.parseInt(s) - 1;
             return new doneCommand(index);
+        if (s.startsWith("find")){
+            String desc = s.substring(5);
+            return new findCommand(desc);
         }
         if (s.startsWith("deadline")) {
             try {
