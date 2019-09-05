@@ -8,16 +8,14 @@ public class Deadline extends Task {
     public Deadline(String description, Date byDate){
         super(description);
         this.byDate = byDate;
-        System.out.println("Added new task: " + this.toString());
     }
 
     @Override
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         Date now = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM YYYY, haa");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMMM YYYY");
         simpleDateFormat.format(byDate, stringBuffer, new FieldPosition(0));
-        System.out.println(stringBuffer);
         return "[D]" + super.toString() + " (by : " + stringBuffer + ")";
     }
 }

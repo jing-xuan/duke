@@ -8,13 +8,12 @@ public class Event extends Task {
     public Event(String description, Date atDate){
         super(description);
         this.atDate = atDate;
-        System.out.println("Added new task: " + this.toString());
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         Date now = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("d MMMM YYYY, haa");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MMMM YYYY");
         simpleDateFormat.format(atDate, stringBuffer, new FieldPosition(0));
         return "[E]" + super.toString() + " (at : " + stringBuffer + ")";
     }
