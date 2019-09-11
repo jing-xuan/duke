@@ -1,12 +1,27 @@
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import java.util.Scanner;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import java.io.IOException;
 
-public class Duke {
+public class Duke extends Application {
     public TaskList tasks;
-
+    private ScrollPane scrollPane;
+    private VBox dialogContainer;
+    private TextField userInput;
+    private Button sendButton;
+    private Scene scene;
+    Stage stage;
     public Duke() {
         this.tasks = new TaskList();
+        this.stage = new Stage();
+
     }
 
     public void run() {
@@ -33,7 +48,16 @@ public class Duke {
         //do the other stuff to end
     }
 
-    public void start() {
+    @Override
+    public void start(Stage stage) {
+        Label helloWorld = new Label("Hello World!"); // Creating a new Label control
+        Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
+
+        stage.setScene(scene); // Setting the stage to show our screen
+        stage.show(); // Render the stage.
+    }
+
+    public void begin() {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
                 + "| | | | | | | |/ / _ \\\n"
@@ -45,7 +69,7 @@ public class Duke {
 
     public static void main(String[] args) throws IOException {
         Duke d = new Duke();
-        d.start();
+        d.begin();
         d.run();
     }
-}
+ }

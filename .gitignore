@@ -9,7 +9,6 @@
 src/main/resources/docs/
 src/main/java/DukeException.java
 output.txt
-src/test/
 # MacOS custom attributes files created by Finder
 .DS_Store
 *.iml

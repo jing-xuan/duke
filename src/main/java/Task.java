@@ -73,7 +73,6 @@ public class Task {
             }
             desc = s.substring(s.indexOf("]") + 2, s.indexOf(marker));
             dateString = s.substring(s.indexOf(marker) + 7, s.indexOf(")"));
-            System.out.println("Task with desc " + desc + " and date " + dateString);
             try {
                 d = Task.stringToDate(dateString);
             } catch (Exception e){
@@ -101,11 +100,8 @@ public class Task {
     private static Date stringToDate(String d) throws DukeException {
         Date date = new Date();
         try{
-            System.out.println("got string:" + d);
             SimpleDateFormat sdfrmt = new SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH);
             date = sdfrmt.parse(d);
-            System.out.println(date);
-            System.out.println(d);
             return date;
         } catch (ParseException e) {
             throw new DukeException("Invalid Date Format");
