@@ -3,6 +3,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CommandParser {
+    /**
+     * Parses the user input and returns the corresponding commands.
+     *
+     * @param s the entire string from the user input
+     * @return the command object that can be executed to fulfil the user's input command
+     * @throws DukeException when the input is invalid e.g. blank task name
+     */
     public static Command parse(String s) throws DukeException {
         if (s.equals("bye")) {
             //return bye command
@@ -85,6 +92,13 @@ public class CommandParser {
             throw new DukeException("Sorry, I don't understand your command");
     }
 
+    /**
+     * Used to parse the date. Written as a separate function as it is called multiple times.
+     *
+     * @param d the string containing the date input by the user
+     * @return a Date object that is the date entered by the user
+     * @throws DukeException When the date is invalid
+     */
     private static Date parseDate(String d) throws DukeException {
         Date date = new Date();
         try{

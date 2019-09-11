@@ -3,6 +3,15 @@ public class deleteCommand extends Command {
     public deleteCommand(int i){
         this.index = i;
     }
+
+    /**
+     * Removes the specified task from the tasklist.
+     * It checks if the task ID exists within the tasklist. If it does,
+     * it removes the task, and tells the user how many tasks are remaining
+     *
+     * @param tasks the TaskList object storing the tasks
+     * @param storage the Storage object responsible for storing objects in persistent storage
+     */
     public void execute(TaskList tasks, Storage storage) {
         //do nothing
         try {

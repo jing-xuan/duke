@@ -18,18 +18,33 @@ public class Task {
         numTasks++;
     }
 
+    /**
+     * Returns the status icon to be used in the toString functions
+     * @return the icon, either a tick or a cross
+     */
     public String getStatusIcon(){
         return (isDone ? "\u2713" : "\u2718");
     }
 
+    /**
+     * Marks the specified task as done
+     */
     public void markAsDone(){
         isDone = true;
     }
-    
+
+    /**
+     * Creates the description of a task containing its name and whether it has been done
+     * @return the String with all the information about the task
+     */
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
 
+    /**
+     * Returns the number of tasks currently stored in the TaskList object
+     * @return the number of tasks currently stored
+     */
     public static int getNumTasks() {
         return numTasks;
     }
@@ -38,6 +53,15 @@ public class Task {
         numTasks++;
     }
 
+    /**
+     * Converts a string into a Task object, used by the Storage.load() function.
+     * Takes in a string read from the output file, and converts it into a Task by
+     * decoding its task type, its done state, its date and its description
+     *
+     * @param s the String to be parsed into a Task
+     * @return the Task object derived from parsing the String
+     * @throws DukeException Happens when the line cannot be parsed. Output file may have been tampered
+     */
     public static Task stringToTask(String s) throws DukeException {
         try {
             s = s.substring(s.indexOf('[') + 1);

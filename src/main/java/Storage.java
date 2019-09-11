@@ -7,6 +7,12 @@ public class Storage {
         this.filepath = filepath;
     }
 
+    /**
+     * Reads in the contents of the file in which the tasks are stored, parses them and loads them
+     * into the Tasklist object.
+     *
+     * @param tasks the TaskList object to load the tasks from the file into
+     */
     public void load(TaskList tasks) {
         try{
             System.out.println("Loading your previous tasks");
@@ -28,6 +34,12 @@ public class Storage {
         }
     }
 
+    /**
+     * Opposite of load, converts all the tasks to string and stores them in the output file in a format
+     * that can be parsed into Tasks by the load function
+     *
+     * @param tasks the Tasklist object containing all the tasks
+     */
     public void save(TaskList tasks) {
         try{
             FileWriter fileWriter = new FileWriter(this.filepath);

@@ -14,6 +14,10 @@ public class TaskList {
         tasks.remove(i);
     }
 
+    /**
+     * Lists all the tasks currently inside the object, and also notifies the user if there
+     * are no tasks to be listed.
+     */
     public void listTasks() {
         for (int i = 0; i < tasks.size(); i++){
             System.out.println((i + 1) + ". " + tasks.get(i).toString());
@@ -23,6 +27,11 @@ public class TaskList {
         }
     }
 
+    /**
+     * Goes through all the tasks inside the TaskList object to determine if any of them match the keyword,
+     * and print out the matching tasks, if any.
+     * @param keyword the keyword to search for
+     */
     public void findTasks(String keyword) {
         System.out.println("Here are the matching tasks in your list: ");
         for (int i = 0; i < tasks.size(); i++){

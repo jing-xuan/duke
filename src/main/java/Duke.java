@@ -24,6 +24,10 @@ public class Duke extends Application {
 
     }
 
+    /**
+     * Begins running Duke, by first creating the input object, and the other Duke specific
+     * objects that are necessary for Duke to run
+     */
     public void run() {
         Scanner input = new Scanner(System.in);
         CommandParser Parser = new CommandParser();
